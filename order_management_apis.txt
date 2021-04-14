@@ -1,0 +1,165 @@
+Order management apis and json
+==============================
+
+1. http://localhost:8080/order/rest/api/order-management/place-order
+
+Method:POST
+i/p:
+{
+	"emailId":"xyz@gmail",
+	"description":"1st order",
+	"placeOrderItemVos":[
+		{
+			"itemId":1,
+			"quantity":4
+		},
+		{
+			"itemId":2,
+			"quantity":3
+		}
+	],
+	"price":1000
+}
+
+2. http://localhost:8080/order/rest/api/order-management/place-bulk-orders
+
+Method:POST
+i/p:
+[
+	{
+		"emailId":"xyzabc@yahoo",
+		"description":"bulk order 1",
+		"placeOrderItemVos":[
+			{
+				"itemId":4,
+				"quantity":5
+			},
+			{
+				"itemId":5,
+				"quantity":6
+			}
+		],
+		"price":500
+	},
+	{
+		"emailId":"xyzabc@yahoo1",
+		"description":"bulk order 2",
+		"placeOrderItemVos":[
+			{
+				"itemId":6,
+				"quantity":4
+			},
+			{
+				"itemId":7,
+				"quantity":3
+			}
+		],
+		"price":1500
+	}
+]
+
+3. http://localhost:8080/order/rest/api/order-management/get-order-details
+
+Method:POST
+i/p:
+{
+	"orderId":31
+}
+
+4. http://localhost:8080/order/rest/api/order-management/check-order-status
+
+Method:POST
+i/p:
+{
+	"orderId":29,
+	"itemIds":[1, 2]
+}
+
+5. http://localhost:8080/order/rest/api/order-management/update-order-status
+
+Method:POST
+i/p:
+{
+	"orderId":29,
+	"itemStatusVos":[
+		{
+			"itemId":1,
+			"orderStatus":"dispatched"
+		},
+		{
+			"itemId":2,
+			"orderStatus":"completed"
+		}
+	]
+}
+
+6. http://localhost:8080/order/rest/api/order-management/list-orders-with-search
+
+Method:POST
+i/p:
+{
+	"searchKey":"",
+	"pageSize":100,
+	"pageNumber":1
+}
+
+
+# add items
+7. http://localhost:8080/order/rest/api/items/create
+
+Method:POST
+i/p:
+{
+	"description":"11 item",
+	"itemCount":1,
+	"price":10,
+	"active":true
+}
+
+# add items in bulk
+8. http://localhost:8080/order/rest/api/items/create-batch
+
+Method:POST
+i/p:
+[
+	{
+	"description":"2nd item",
+	"itemCount":1,
+	"price":50,
+	"active":true
+	},
+	{
+	"description":"3rd item",
+	"itemCount":1,
+	"price":70,
+	"active":true
+	}
+]
+
+9. http://localhost:8080/order/rest/api/items/update-batch
+
+Method:POST
+i/p:
+{
+	"id":5,
+	"description":"1st item",
+	"itemCount":3,
+	"price":100,
+	"active":true
+}
+
+10. http://localhost:8080/order/rest/api/items/read
+
+Method:POST
+i/p:
+{
+	"id":1
+}
+
+11. http://localhost:8080/order/rest/api/items/list
+
+Method:POST
+i/p:
+{
+    
+}
